@@ -1,5 +1,7 @@
 import './App.css';
-import Demo1 from './components/Demo1';
+import Auth from './pages/Auth';
+import Register from './pages/Register';
+//import Demo1 from './components/Demo1';
 import Demo2 from './components/Demo2';
 import Demo3 from './components/Demo3';
 import Demo4 from './components/Demo4';
@@ -7,15 +9,54 @@ import Demo5 from './components/Demo5';
 import Demo6 from './components/Demo6';
 import Demo7 from './components/Demo7';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
 function App() {
 
   return (
-    <div className="App">   
-      {/* <Demo1 />
-      <Demo2 />
-      <Demo3 /> */}
-      <Demo6 />
-    </div>
+    <Router>
+      <div className="App">
+        {/* <ul>
+          <li>
+            <Link to="/">Login</Link>
+          </li>
+          <li>
+            <Link to="/useEffect">useEffect</Link>
+          </li>
+          <li>
+            <Link to="/useRef">useRef</Link>
+          </li>
+          <li>
+            <Link to="/useMemo">useMemo</Link>
+          </li>
+          <li>
+            <Link to="/useCallback">useCallback</Link>
+          </li>
+          <li>
+            <Link to="/useContext">useContext</Link>
+          </li>
+          <li>
+            <Link to="/useReducer">useReducer</Link>
+          </li>
+        </ul> */}
+      </div>
+
+      <Routes>
+        <Route exact path='/' element={<Auth />}></Route>
+        <Route exact path='/register' element={<Register />}></Route>
+        <Route exact path='/useEffect' element={< Demo2 />}></Route>
+        <Route exact path='/useRef' element={< Demo3 />}></Route>
+        <Route exact path='/useMemo' element={< Demo4 />}></Route>
+        <Route exact path='/useCallback' element={< Demo5 />}></Route>
+        <Route exact path='/useContext' element={< Demo6 />}></Route>
+        <Route exact path='/useReducer' element={< Demo7 />}></Route>
+      </Routes>
+    </Router>
+
   );
 }
 
