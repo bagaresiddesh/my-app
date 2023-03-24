@@ -3,6 +3,7 @@ import './Auth.css';
 import axios from "axios";
 
 const Register = () => {
+    let responseData = "";
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -22,11 +23,30 @@ const Register = () => {
         const url = "https://localhost:7171/api/auth/register";
 
         axios.post(url, data).then((result) => {
-            //console.log(result,data);
-            alert(result, data);
-            
+            responseData = result;
+
+            if (result.data.username != null) {
+                responseData = "User Registered successfully"
+            }
+            alert(responseData + " with username: " + result.data.username);
+
         }).catch((error) => {
-            alert(error);
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log('data' + error.response.data);
+                responseData = error.response.data;
+                alert(responseData);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log('request' + error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log('config' + error.config);
         })
         event.preventDefault();
     }

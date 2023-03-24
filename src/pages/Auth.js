@@ -26,49 +26,45 @@ const Auth = () => {
         const url = "https://localhost:7171/api/auth/login";
 
         axios.post(url, data).then((result) => {
-            
-            token=(token + result.data);
+
+            token = (token + result.data);
             //console.log(result);
-            if(token.length > 0)
-            {
+            if (token.length > 0) {
                 console.log(result.data);
+                responseData = "Login Successful"
+                alert(responseData);
             }
-            else
-            {
-                console.log(result);
-            }
-            
+
         }).catch((error) => {
             if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
                 console.log('data' + error.response.data);
-                console.log('status' + error.response.status);
-                console.log('headers' +error.response.headers);
-                responseData=error.response.data;
-              } else if (error.request) {
+                responseData = error.response.data;
+                alert(responseData);
+            } else if (error.request) {
                 // The request was made but no response was received
                 // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
                 // http.ClientRequest in node.js
                 console.log('request' + error.request);
-              } else {
+            } else {
                 // Something happened in setting up the request that triggered an Error
                 console.log('Error', error.message);
-              }
-              console.log('config' + error.config);
+            }
+            console.log('config' + error.config);
         })
-        
-        event.preventDefault(); 
+
+        event.preventDefault();
     }
-    
+
     return (
         <div className="Auth-form-container">
             <form className="Auth-form">
                 <div className="Auth-form-content">
                     <h3 className="Auth-form-title">Login</h3>
-                   
+
                     <p>{responseData}</p>
-                
+
                     <div className="form-group mt-3 Auth-login-block">
                         <label>Email address</label>
                         <input
