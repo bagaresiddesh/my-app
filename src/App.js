@@ -8,6 +8,7 @@ import Demo4 from './components/Demo4';
 import Demo5 from './components/Demo5';
 import Demo6 from './components/Demo6';
 import Demo7 from './components/Demo7';
+import Start from './pages/Start';
 
 import {
   BrowserRouter as Router,
@@ -47,6 +48,7 @@ function App() {
 
       <Routes>
         <Route exact path='/' element={<Auth />}></Route>
+        <Route exact path='/start' element={<Start />}></Route>
         <Route exact path='/register' element={<Register />}></Route>
         <Route exact path='/useEffect' element={< Demo2 />}></Route>
         <Route exact path='/useRef' element={< Demo3 />}></Route>
