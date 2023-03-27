@@ -1,20 +1,22 @@
 import './App.css';
 import Auth from './pages/Auth';
 import Register from './pages/Register';
-//import Demo1 from './components/Demo1';
 import Demo2 from './components/Demo2';
 import Demo3 from './components/Demo3';
 import Demo4 from './components/Demo4';
 import Demo5 from './components/Demo5';
 import Demo6 from './components/Demo6';
 import Demo7 from './components/Demo7';
-import Start from './pages/Start';
+
 
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
+import Home from './pages/Home';
+import Customer from './pages/Customer';
+import Location from './pages/Location';
 
 function App() {
 
@@ -47,9 +49,11 @@ function App() {
       </div>
 
       <Routes>
-        <Route exact path='/' element={<Auth />}></Route>
-        <Route exact path='/start' element={<Start />}></Route>
+        <Route exact path='/' element={<Home />}></Route>
+        <Route exact path='/login' element={<Auth />}></Route>
         <Route exact path='/register' element={<Register />}></Route>
+        <Route exact path='/customer' element={<Customer />}></Route>
+        <Route exact path='/location' element={<Location />}></Route>   
         <Route exact path='/useEffect' element={< Demo2 />}></Route>
         <Route exact path='/useRef' element={< Demo3 />}></Route>
         <Route exact path='/useMemo' element={< Demo4 />}></Route>

@@ -1,0 +1,19 @@
+.Dashboard {
+    display: flex;
+    flex-direction: row;
+}
+
+.Dashboard-nav-bar {
+    background-color: #ebe5ee;
+}
+
+.Dashboard-nav-bar-title {
+    font-size: 24px;
+    color: #260037;
+    font-weight: 800;
+}
+
+.Dashboard-nav-bar-icon {
+    font-size: larger !important;
+    color:#20002e !important;
+}

@@ -2,11 +2,13 @@ import React from "react"
 import { useState } from "react";
 import './Auth.css';
 import axios from "axios";
-import Start from "./Start";
+import { useNavigate } from "react-router-dom";
   
 const Auth = () => {
-    let token = "";
     let responseData = "";
+    let token ="";
+
+    const navigate= useNavigate();
 
     const [errorMessage, setErrorMessage] = useState('');
     const [userName, setUserName] = useState('');
@@ -35,6 +37,7 @@ const Auth = () => {
     }
 
     const handleSave = (event) => {
+        event.preventDefault();
         if (isFormValid) {
             const data = {
                 username: userName,
@@ -48,9 +51,10 @@ const Auth = () => {
                 token = (token + result.data);
                 if (token.length > 0) {
                     console.log(result.data);
+                    localStorage.setItem("userToken", token)
                     responseData = "Login Successful"
                     setErrorMessage("");
-                    alert(responseData);
+                    navigate("/");
                 }
 
             }).catch((error) => {
@@ -115,7 +119,6 @@ const Auth = () => {
                     </p>
                 </div>
             </form>
-            <Start token={token}></Start>
         </div>
     )
 }
