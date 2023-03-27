@@ -1,10 +1,14 @@
 .Dashboard {
-    display: flex;
-    flex-direction: row;
+    display: table-row-group;
 }
 
 .Dashboard-nav-bar {
     background-color: #ebe5ee;
+    min-height: 800px;
+}
+
+.Dashboard-nav-bar-main {
+    display: flex;
 }
 
 .Dashboard-nav-bar-title {

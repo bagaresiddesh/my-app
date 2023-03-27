@@ -5,7 +5,6 @@ const Customer = () => {
             Customer
         </div>
     )
-
 }
 
 export default Customer;
