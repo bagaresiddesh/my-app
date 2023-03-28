@@ -4,10 +4,18 @@
 
 .Dashboard-nav-bar {
     background-color: #ebe5ee;
-    min-height: 800px;
+    min-height: 600px;
+    box-shadow: 0 1px 8px #20002e !important;
+    border-radius: 4px;
+    position: sticky;
 }
 
 .Dashboard-nav-bar-main {
+    text-align: center;
+}
+
+.Dashboard-nav-bar-content {
+    text-align: center;
     display: flex;
 }
 

@@ -6,17 +6,17 @@ const Register = () => {
     let responseData = "";
     const [errorMessage, setErrorMessage] = useState('');
     const [userName, setUserName] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [password, setPassword] = useState('');
-
-    // const regExp = RegExp(
-    //     /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-    // )
 
     const handleUserNameChange = (value) => {
         setUserName(value);
     }
     const handlePasswordChange = (value) => {
         setPassword(value);
+    }
+    const handleConfirmPasswordChange = (value) => {
+        setConfirmPassword(value);
     }
     const isFormValid = () => {
         if ((password.length === 0) && (userName.length === 0)) {
@@ -33,6 +33,10 @@ const Register = () => {
         }
         if (password.length < 8) {
             setErrorMessage("Password must be min 8 characters");
+            return false;
+        }
+        if (password !== confirmPassword) {
+            setErrorMessage("Password and confirm Password not matching");
             return false;
         }
         return true;
@@ -107,6 +111,16 @@ const Register = () => {
                             className="form-control mt-1"
                             placeholder="Enter password"
                             onChange={(e) => handlePasswordChange(e.target.value)}
+                        />
+                        {/* <small className="Auth-form-error">Field required</small> */}
+                    </div>
+                    <div className="form-group mt-3 Auth-login-block">
+                        <label>Confirm Password</label>
+                        <input
+                            type="password"
+                            className="form-control mt-1"
+                            placeholder="Enter password"
+                            onChange={(e) => handleConfirmPasswordChange(e.target.value)}
                         />
                         {/* <small className="Auth-form-error">Field required</small> */}
                     </div>

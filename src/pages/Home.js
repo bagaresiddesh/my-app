@@ -1,14 +1,13 @@
 import Header from "./Header";
 import SideBar from "./SideBar";
 import Footer from "./Footer";
-import Customer from "./Customer";
 
 const Home = () => {
 
     const Main = () => {
         return (
             <div>
-                <Customer />
+                Main content here
             </div>
         )
     }
@@ -16,9 +15,9 @@ const Home = () => {
     return (
         <div className="Dashboard">
             <Header />
-            <div className="Dashboard-nav-bar-main">
+            <div className="Dashboard-nav-bar-content">
                 <SideBar />
-                <Main />
+                <Main className="Dashboard-nav-bar-main"/>
             </div>
             <Footer />
         </div>

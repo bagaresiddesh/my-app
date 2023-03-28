@@ -50,7 +50,6 @@ const Auth = () => {
 
                 token = (token + result.data);
                 if (token.length > 0) {
-                    console.log(result.data);
                     localStorage.setItem("userToken", token)
                     responseData = "Login Successful"
                     setErrorMessage("");
