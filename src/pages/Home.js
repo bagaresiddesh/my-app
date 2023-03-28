@@ -8,7 +8,7 @@ const Home = () => {
     const Main = () => {
         return (
             <div className="Dashboard-main">
-                <Outlet/>
+                <Outlet />
             </div>
         )
     }

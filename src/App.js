@@ -48,11 +48,11 @@ function App() {
       </div>
 
       <Routes>
-        <Route exact path='/' element={<Home />}>
-        <Route exact path='/customer' element={<NewCustomer />}></Route>
-        <Route exact path='/location' element={<NewLocation />}></Route>
+        <Route exact path='/dashboard' element={<Home />}>
+        <Route exact path='/dashboard/customer' element={<NewCustomer />}></Route>
+        <Route exact path='/dashboard/location' element={<NewLocation />}></Route>
       </Route>
-        <Route exact path='/login' element={<Auth />}></Route>
+        <Route exact path='/' element={<Auth />}></Route>
         <Route exact path='/register' element={<Register />}></Route>
         <Route exact path='/useEffect' element={< Demo2 />}></Route>
         <Route exact path='/useRef' element={< Demo3 />}></Route>

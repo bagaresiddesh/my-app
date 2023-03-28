@@ -16,14 +16,14 @@ const SideBar = () => {
             }
         }}
             items={[
-                { className: "Dashboard-nav-bar-title", label: "Home", key: "/", icon: <HomeOutlined className="Dashboard-nav-bar-icon" /> },
-                { className: "Dashboard-nav-bar-title", label: "Customers", key: "/customer", icon: <UserOutlined className="Dashboard-nav-bar-icon" /> },
-                { className: "Dashboard-nav-bar-title", label: "Locations", key: "/location", icon: <UnorderedListOutlined className="Dashboard-nav-bar-icon" /> },
+                { className: "Dashboard-nav-bar-title", label: "Home", key: "/dashboard", icon: <HomeOutlined className="Dashboard-nav-bar-icon" /> },
+                { className: "Dashboard-nav-bar-title", label: "Customers", key: "/dashboard/customer", icon: <UserOutlined className="Dashboard-nav-bar-icon" /> },
+                { className: "Dashboard-nav-bar-title", label: "Locations", key: "/dashboard/location", icon: <UnorderedListOutlined className="Dashboard-nav-bar-icon" /> },
                 { className: "Dashboard-nav-bar-title", label: "Logout", key: "logout", icon: <PoweroffOutlined className="Dashboard-nav-bar-icon" /> },
             ]}>
 
         </Menu>
-        
+
     )
 }
 

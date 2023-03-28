@@ -53,7 +53,7 @@ const Auth = () => {
                     localStorage.setItem("userToken", token)
                     responseData = "Login Successful"
                     setErrorMessage("");
-                    navigate("/");
+                    navigate("/dashboard");
                 }
 
             }).catch((error) => {

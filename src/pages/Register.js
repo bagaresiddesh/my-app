@@ -130,7 +130,7 @@ const Register = () => {
                         </button>
                     </div>
                     <p className="forgot-password text-right mt-2">
-                        Already have an account?.. <a href="login">Login</a>
+                        Already have an account?.. <a href="/">Login</a>
                     </p>
                 </div>
             </form>
