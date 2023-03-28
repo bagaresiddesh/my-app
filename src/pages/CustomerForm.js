@@ -1,5 +1,5 @@
 import './Home.css';
-const Customer = () => {
+const CustomerForm = () => {
     
     const token= "bearer " + localStorage.getItem("userToken");
     console.log(token);
@@ -18,4 +18,4 @@ const Customer = () => {
     );
 }
 
-export default Customer;
+export default CustomerForm;

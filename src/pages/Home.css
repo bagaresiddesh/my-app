@@ -23,9 +23,18 @@
     font-size: 24px;
     color: #260037;
     font-weight: 800;
+    text-align-last: left;
 }
 
 .Dashboard-nav-bar-icon {
     font-size: larger !important;
     color:#20002e !important;
+}
+
+.Dashboard-main {
+    width: 1300px;
+}
+
+.Dashboard-new-customer .Dashboard-new-location{
+    text-align: center;
 }
