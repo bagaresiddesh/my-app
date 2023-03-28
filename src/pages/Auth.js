@@ -55,7 +55,6 @@ const Auth = () => {
                 }
 
             }).catch((error) => {
-                console.log(error.message);
                 responseData = error.message;
                 setErrorMessage(responseData);
             })

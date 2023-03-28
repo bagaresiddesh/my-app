@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import './Home.css';
 import instance from '../config/axios';
+import { useNavigate } from "react-router-dom";
 
 const CustomerForm = () => {
+
+    let responseData = "";
+
+    const navigate = useNavigate();
+
+    const [errorMessage, setErrorMessage] = useState('');
 
     //const token = "bearer " + localStorage.getItem("userToken");
 
@@ -11,16 +18,32 @@ const CustomerForm = () => {
     const handleNamechange = (value) => {
         setName(value);
     }
+    const isValid = () => {
+        if (name.length === 0) {
+            setErrorMessage("Name field required");
+            return false;
+        }
+        return true;
+    }
 
     const handleSave = (event) => {
-        event.preventDefault();
-        const data = {
-            name: name
+        if(isValid())
+        {
+            const data = {
+                name: name
+            }
+    
+            instance.post("/customer", data).then(() => {
+                responseData = "Login Successful"
+                setErrorMessage("");
+                navigate("/dashboard");
+            }).catch((error) => {
+                responseData = error.message;
+                setErrorMessage(responseData);
+            })
         }
-
-        instance.post("/customer", data).then((result) => {
-            console.log(result);
-        })
+        event.preventDefault();
+        
     }
 
     const [isBack, setBack] = useState(false);
@@ -31,6 +54,9 @@ const CustomerForm = () => {
 
     return (
         <div className="Dashboard-nav-bar-main">
+            {errorMessage && (
+                        <p className="Auth-form-error"> {errorMessage} </p>
+                    )}
             <label>Name</label>
             <input
                 type="name"
