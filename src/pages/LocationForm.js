@@ -13,7 +13,9 @@ const LocationForm = () => {
                 onChange={(event) => {this.setState({email:event.target.value})}}></input>
             <div>
                 <button>Add new Location</button>
+                <button>Back</button>
             </div>
+            
         </div>
     );
 }
