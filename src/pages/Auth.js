@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react";
-import './Auth.css';
+import './Home.css';
 import { useNavigate } from "react-router-dom";
 import instance from "../config/axios";
 

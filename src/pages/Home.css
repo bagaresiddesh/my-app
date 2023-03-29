@@ -1,3 +1,87 @@
+.App {
+    background-color: white;
+}
+
+.Auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Auth-form {
+    background-color: #ebe5ee;
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 30rem;
+    max-width: 95%;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 8px #20002e;
+}
+
+.Auth-form-content {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.Auth-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 36px;
+    color: #260037;
+    font-weight: 800;
+}
+
+.Auth-login-block {
+    margin-top: 1rem;
+}
+
+.Auth-form-error{
+    color: red;
+}
+
+label {
+    font-size: 24px;
+    color: #260037;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+p {
+    color: #260037;
+    font-size: 18px;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #53196d;
+    background-color: #53196d;
+    color: white;
+    border-radius: 12px;
+    margin-top: 1rem;
+    margin: 10px;
+}
+
+button:hover,
+button:active {
+    background-color: #40005d;
+    border-color: #40005d;
+}
+
+input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+}
+
 .Dashboard {
     display: table-row-group;
 }
@@ -20,11 +104,20 @@
 }
 
 .Dashboard-nav-bar-title {
-    font-size: 24px;
-    color: #260037;
+    font-size: 32px;
+    color: #40005d;
     font-weight: 800;
     text-align-last: left;
 }
+
+.Dashboard-nav-bar-title :active {
+    color: white !important;   
+}
+
+.Dashboard-nav-bar-title :selected {
+    color: white !important;   
+}
+
 
 .Dashboard-nav-bar-icon {
     font-size: larger !important;
@@ -36,5 +129,32 @@
 }
 
 .Dashboard-new-customer .Dashboard-new-location{
+    text-align: center;
+}
+
+.Customer-table-area {
+    text-align: -webkit-center;
+    margin: 20px;
+}
+
+.Customer-table {
+    background-color: #ebe5ee;
+    box-shadow: 0 1px 8px #20002e !important;
+    width: 400px;
+    border-radius: 4px;
+    
+}
+
+.Customer-table-heading {
+    font-size: 26px;
+    color: #40005d;
+}
+
+.Customer-table-data {
+    font-size: 24px;
+    color: #260037;
+}
+
+.Customer-table-row { 
     text-align: center;
 }

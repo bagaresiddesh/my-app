@@ -11,8 +11,6 @@ const CustomerForm = () => {
 
     const [errorMessage, setErrorMessage] = useState('');
 
-    //const token = "bearer " + localStorage.getItem("userToken");
-
     const [name, setName] = useState('');
 
     const handleNamechange = (value) => {
@@ -49,7 +47,7 @@ const CustomerForm = () => {
     const [isBack, setBack] = useState(false);
 
     const backHandler = () => {
-        setBack(true);
+        navigate("/dashboard");
     };
 
     return (

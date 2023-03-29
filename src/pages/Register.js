@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import './Auth.css';
+import './Home.css';
 import axios from "axios";
 
 const Register = () => {
@@ -119,7 +119,7 @@ const Register = () => {
                         <input
                             type="password"
                             className="form-control mt-1"
-                            placeholder="Enter password"
+                            placeholder="Re-enter password"
                             onChange={(e) => handleConfirmPasswordChange(e.target.value)}
                         />
                         {/* <small className="Auth-form-error">Field required</small> */}

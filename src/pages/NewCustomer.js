@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustomerForm from './CustomerForm';
+import GetAll from './customer/GetAll';
 
 const NewCustomer = (props) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -21,6 +22,7 @@ const NewCustomer = (props) => {
         setIsEditing(false);
     };
 
+
     return (
         <div className='Dashboard-new-customer'>
             {!isEditing && (
@@ -28,11 +30,14 @@ const NewCustomer = (props) => {
             )}
             {isEditing && (
                 <CustomerForm
-                
+
                     onSaveExpenseData={saveExpenseDataHandler}
                     onCancel={stopEditingHandler}
                 />
             )}
+            <div className='Customer-table-area'>
+                <GetAll />
+            </div>
         </div>
     );
 }
