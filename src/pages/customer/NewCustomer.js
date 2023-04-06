@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustomerForm from './CustomerForm';
-import GetAll from './customer/GetAll';
+import GetAll from './GetAll';
 
 const NewCustomer = (props) => {
     const [isEditing, setIsEditing] = useState(false);

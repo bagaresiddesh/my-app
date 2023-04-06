@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import '../Home.css';
+import instance from '../../config/axios';
+import { useNavigate } from "react-router-dom";
+
+const LocationForm = () => {
+
+    let responseData = "";
+
+    const navigate = useNavigate();
+
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const [name, setName] = useState('');
+
+    const handleNamechange = (value) => {
+        setName(value);
+    }
+    const isValid = () => {
+        if (name.length === 0) {
+            setErrorMessage("Name field required");
+            return false;
+        }
+        return true;
+    }
+
+    const handleSave = (event) => {
+        if(isValid())
+        {
+            const data = {
+                name: name
+            }
+    
+            instance.post("/location", data).then(() => {
+                responseData = "Login Successful"
+                setErrorMessage("");
+                navigate("/dashboard");
+            }).catch((error) => {
+                responseData = error.message;
+                setErrorMessage(responseData);
+            })
+        }
+        event.preventDefault();
+    }
+
+    const backHandler = () => {
+        navigate("/dashboard");
+    };
+
+    return (
+        <div className="Dashboard-nav-bar-main">
+            {errorMessage && (
+                        <p className="Auth-form-error"> {errorMessage} </p>
+                    )}
+            <label>City</label>
+            <input
+                type="name"
+                placeholder="City"
+                onChange={(e) => handleNamechange(e.target.value)}></input>
+            <div>
+                <button onClick={(e) => handleSave(e)}>Add new location</button>
+                <button onClick={backHandler}>Back</button>
+            </div>
+        </div>
+    );
+}
+
+export default LocationForm;

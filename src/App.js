@@ -14,8 +14,8 @@ import {
   Route
 } from 'react-router-dom';
 import Home from './pages/Home';
-import NewCustomer from './pages/NewCustomer';
-import NewLocation from './pages/NewLocation';
+import NewCustomer from './pages/customer/NewCustomer';
+import NewLocation from './pages/location/NewLocation';
 
 function App() {
 

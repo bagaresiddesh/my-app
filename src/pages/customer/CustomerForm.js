@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './Home.css';
-import instance from '../config/axios';
+import '../Home.css';
+import instance from '../../config/axios';
 import { useNavigate } from "react-router-dom";
 
 const CustomerForm = () => {
@@ -44,8 +44,6 @@ const CustomerForm = () => {
         
     }
 
-    const [isBack, setBack] = useState(false);
-
     const backHandler = () => {
         navigate("/dashboard");
     };
@@ -62,10 +60,7 @@ const CustomerForm = () => {
                 onChange={(e) => handleNamechange(e.target.value)}></input>
             <div>
                 <button onClick={(e) => handleSave(e)}>Add new customer</button>
-
-                {!isBack && (
-                    <button onClick={backHandler}>Back</button>
-                )}
+                <button onClick={backHandler}>Back</button>
             </div>
         </div>
     );
