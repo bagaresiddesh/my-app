@@ -87,8 +87,8 @@ input {
 }
 
 .Dashboard-nav-bar {
-    background-color: #ebe5ee;
     min-height: 600px;
+    width: 300;
     box-shadow: 0 1px 8px #20002e !important;
     border-radius: 4px;
     position: sticky;
