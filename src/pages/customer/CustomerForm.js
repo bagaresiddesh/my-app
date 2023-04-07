@@ -32,7 +32,6 @@ const CustomerForm = () => {
             }
     
             instance.post("/customer", data).then(() => {
-                responseData = "Login Successful"
                 setErrorMessage("");
                 navigate("/dashboard");
             }).catch((error) => {

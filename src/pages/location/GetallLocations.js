@@ -16,12 +16,15 @@ const GetAllLocations = () => {
         <Fragment>
             {location.map((data) => {
                 return (
-                    <tr className="Location-table-row">
-                        <td className='Location-table-data'> 
+                    <tr className="Home-table-row">
+                        <td className='Home-table-data'>
                             {data.id}
                         </td>
-                        <td className='Location-table-data'>
+                        <td className='Home-table-data'>
                             {data.city}
+                        </td>
+                        <td className='Home-table-data'>
+                            {data.customerId}
                         </td>
                     </tr>
                 )

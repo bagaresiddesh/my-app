@@ -7,15 +7,15 @@ import Demo4 from './components/Demo4';
 import Demo5 from './components/Demo5';
 import Demo6 from './components/Demo6';
 import Demo7 from './components/Demo7';
-
+import Home from './pages/Home';
+import NewCustomer from './pages/customer/NewCustomer';
+import NewLocation from './pages/location/NewLocation';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import Home from './pages/Home';
-import NewCustomer from './pages/customer/NewCustomer';
-import NewLocation from './pages/location/NewLocation';
+
 
 function App() {
 

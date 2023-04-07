@@ -35,7 +35,7 @@ const NewCustomer = (props) => {
                     onCancel={stopEditingHandler}
                 />
             )}
-            <div className='Customer-table-area'>
+            <div className='Home-table-area'>
                 <GetAll />
             </div>
         </div>

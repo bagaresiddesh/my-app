@@ -132,29 +132,28 @@ input {
     text-align: center;
 }
 
-.Customer-table-area {
+.Home-table-area {
     text-align: -webkit-center;
     margin: 20px;
 }
 
-.Customer-table {
+.Home-table {
     background-color: #ebe5ee;
     box-shadow: 0 1px 8px #20002e !important;
     width: 400px;
     border-radius: 4px;
-    
 }
 
-.Customer-table-heading {
+.Home-table-heading {
     font-size: 26px;
     color: #40005d;
 }
 
-.Customer-table-data {
+.Home-table-data {
     font-size: 24px;
     color: #260037;
 }
 
-.Customer-table-row { 
+.Home-table-row { 
     text-align: center;
 }

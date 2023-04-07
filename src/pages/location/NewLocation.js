@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LocationForm from './LocationForm';
+import GetAll from './GetAll';
 
 const NewLocation = (props) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -32,6 +33,9 @@ const NewLocation = (props) => {
                     onCancel={stopEditingHandler}
                 />
             )}
+            <div className='Home-table-area'>
+                <GetAll />
+            </div>
         </div>
     );
 }

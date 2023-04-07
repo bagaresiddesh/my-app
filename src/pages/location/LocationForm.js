@@ -11,28 +11,37 @@ const LocationForm = () => {
 
     const [errorMessage, setErrorMessage] = useState('');
 
-    const [name, setName] = useState('');
+    const [city, setCity] = useState('');
+    const [customerId, setCustomerId] = useState('');
 
-    const handleNamechange = (value) => {
-        setName(value);
+    const handleCityChange = (value) => {
+        setCity(value);
+    }
+    const handleCustomerIdChange = (value) => {
+        setCustomerId(value);
     }
     const isValid = () => {
-        if (name.length === 0) {
-            setErrorMessage("Name field required");
+        if (city.length === 0) {
+            setErrorMessage("City field required");
+            return false;
+        }
+        if (customerId.length === 0) {
+            setErrorMessage("Customer Id field required");
             return false;
         }
         return true;
     }
 
     const handleSave = (event) => {
-        if(isValid())
-        {
+        if (isValid()) {
             const data = {
-                name: name
+                city: city,
+                customerId: customerId
             }
-    
+            console.log(data);
+
             instance.post("/location", data).then(() => {
-                responseData = "Login Successful"
+                
                 setErrorMessage("");
                 navigate("/dashboard");
             }).catch((error) => {
@@ -50,13 +59,18 @@ const LocationForm = () => {
     return (
         <div className="Dashboard-nav-bar-main">
             {errorMessage && (
-                        <p className="Auth-form-error"> {errorMessage} </p>
-                    )}
+                <p className="Auth-form-error"> {errorMessage} </p>
+            )}
             <label>City</label>
             <input
-                type="name"
+                type="string"
                 placeholder="City"
-                onChange={(e) => handleNamechange(e.target.value)}></input>
+                onChange={(e) => handleCityChange(e.target.value)}></input>
+            <label>Customer Id</label>
+            <input
+                type="number"
+                placeholder="Customer Id"
+                onChange={(e) => handleCustomerIdChange(e.target.value)}></input>
             <div>
                 <button onClick={(e) => handleSave(e)}>Add new location</button>
                 <button onClick={backHandler}>Back</button>
