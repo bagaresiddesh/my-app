@@ -8,6 +8,7 @@ const GetAll = () => {
                 <tr className="Home-table-row">
                     <th className="Home-table-heading">ID</th>
                     <th className="Home-table-heading">NAME</th>
+                    <th className="Home-table-heading-ops"></th>
                 </tr>
             </thead>
             <tbody>

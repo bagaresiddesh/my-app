@@ -132,17 +132,35 @@ input {
     text-align: center;
 }
 
-.Home-table-area {
-}
+.Home-table-area {}
 
 .Home-table {
     background-color: #fff;
     min-width: 1200px;
 }
 
+.Home-table-icon {
+    font-size: x-large;
+}
+
+.Home-icon {
+    font-size: larger;
+}
+
+.Home-table-button {
+    padding: 3px;
+    border-radius: 8px;
+}
+
 .Home-table-heading {
     font-size: 26px;
     color: #40005d;
+}
+
+.Home-table-heading-ops {
+    font-size: 26px;
+    color: #40005d;
+    width: 300px;
 }
 
 .Home-table-data {
