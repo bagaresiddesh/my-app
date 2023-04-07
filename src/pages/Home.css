@@ -38,7 +38,7 @@
     margin-top: 1rem;
 }
 
-.Auth-form-error{
+.Auth-form-error {
     color: red;
 }
 
@@ -111,37 +111,34 @@ input {
 }
 
 .Dashboard-nav-bar-title :active {
-    color: white !important;   
+    color: white !important;
 }
 
 .Dashboard-nav-bar-title :selected {
-    color: white !important;   
+    color: white !important;
 }
 
 
 .Dashboard-nav-bar-icon {
     font-size: larger !important;
-    color:#20002e !important;
+    color: #20002e !important;
 }
 
 .Dashboard-main {
     width: 1300px;
 }
 
-.Dashboard-new-customer .Dashboard-new-location{
+.Dashboard-new-customer .Dashboard-new-location {
     text-align: center;
 }
 
 .Home-table-area {
     text-align: -webkit-center;
-    margin: 20px;
 }
 
 .Home-table {
-    background-color: #ebe5ee;
-    box-shadow: 0 1px 8px #20002e !important;
-    width: 400px;
-    border-radius: 4px;
+    background-color: #fff;
+    min-width: 1200px;
 }
 
 .Home-table-heading {
@@ -154,6 +151,10 @@ input {
     color: #260037;
 }
 
-.Home-table-row { 
+.Home-table-row {
     text-align: center;
+}
+
+.Home-table-row:hover {
+    background-color: #ebe5ee;
 }

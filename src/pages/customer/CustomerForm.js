@@ -25,12 +25,11 @@ const CustomerForm = () => {
     }
 
     const handleSave = (event) => {
-        if(isValid())
-        {
+        if (isValid()) {
             const data = {
                 name: name
             }
-    
+
             instance.post("/customer", data).then(() => {
                 setErrorMessage("");
                 navigate("/dashboard");
@@ -40,7 +39,7 @@ const CustomerForm = () => {
             })
         }
         event.preventDefault();
-        
+
     }
 
     const backHandler = () => {
@@ -50,8 +49,8 @@ const CustomerForm = () => {
     return (
         <div className="Dashboard-nav-bar-main">
             {errorMessage && (
-                        <p className="Auth-form-error"> {errorMessage} </p>
-                    )}
+                <p className="Auth-form-error"> {errorMessage} </p>
+            )}
             <label>Name</label>
             <input
                 type="name"

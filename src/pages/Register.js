@@ -83,7 +83,7 @@ const Register = () => {
             });
         }
         event.preventDefault();
-        return ;
+        return;
     }
 
     return (

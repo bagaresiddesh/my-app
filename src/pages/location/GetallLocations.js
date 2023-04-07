@@ -14,9 +14,9 @@ const GetAllLocations = () => {
 
     return (
         <Fragment>
-            {location.map((data) => {
+            {location.map((data, index) => {
                 return (
-                    <tr className="Home-table-row">
+                    <tr className="Home-table-row" key={index}>
                         <td className='Home-table-data'>
                             {data.id}
                         </td>

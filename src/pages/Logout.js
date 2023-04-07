@@ -1,5 +1,5 @@
-const Auth = () => { 
+const Logout = () => {
 
 }
 
-export default Auth;
+export default Logout;

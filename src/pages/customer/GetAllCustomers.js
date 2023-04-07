@@ -14,11 +14,11 @@ const GetAllCustomers = () => {
 
     return (
         <Fragment>
-            {customer.map((data) => {
+            {customer.map((data, index) => {
                 return (
-                    <tr className="Home-table-row">
+                    <tr className="Home-table-row" key={index}>
                         <td className='Home-table-data' >
-                            {data.id}   
+                            {data.id}
                         </td>
                         <td className='Home-table-data' >
                             {data.name}

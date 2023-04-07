@@ -8,13 +8,14 @@ import Demo5 from './components/Demo5';
 import Demo6 from './components/Demo6';
 import Demo7 from './components/Demo7';
 import Home from './pages/Home';
-import NewCustomer from './pages/customer/NewCustomer';
-import NewLocation from './pages/location/NewLocation';
+import Customer from './pages/customer/Customer';
+import Location from './pages/location/Location';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
+import CustomerForm from './pages/customer/CustomerForm';
 
 
 function App() {
@@ -22,36 +23,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <ul>
-          <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
-            <Link to="/useEffect">useEffect</Link>
-          </li>
-          <li>
-            <Link to="/useRef">useRef</Link>
-          </li>
-          <li>
-            <Link to="/useMemo">useMemo</Link>
-          </li>
-          <li>
-            <Link to="/useCallback">useCallback</Link>
-          </li>
-          <li>
-            <Link to="/useContext">useContext</Link>
-          </li>
-          <li>
-            <Link to="/useReducer">useReducer</Link>
-          </li>
-        </ul> */}
       </div>
-
       <Routes>
         <Route exact path='/dashboard' element={<Home />}>
-        <Route exact path='/dashboard/customer' element={<NewCustomer />}></Route>
-        <Route exact path='/dashboard/location' element={<NewLocation />}></Route>
-      </Route>
+          <Route exact path='/dashboard/customer/get' element={<Customer />}></Route>
+          <Route exact path='/dashboard/customer/create' element={<CustomerForm />}></Route>
+
+          <Route exact path='/dashboard/location/get' element={<Location />}></Route>
+          <Route exact path='/dashboard/location/create' element={<CustomerForm />}></Route>
+        </Route>
         <Route exact path='/' element={<Auth />}></Route>
         <Route exact path='/register' element={<Register />}></Route>
         <Route exact path='/useEffect' element={< Demo2 />}></Route>
