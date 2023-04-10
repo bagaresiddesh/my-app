@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Logout from '../pages/auth/Logout';
 
 const instance = axios.create({
     baseURL: 'https://localhost:7171/api/'
@@ -21,6 +22,11 @@ instance.interceptors.response.use(response => {
 
     return response;
 }, error => {
+    
+    if(error.response.status === 401)
+    {
+        <Logout/>
+    }
     console.log(error.message);
     return Promise.reject(error);
 });

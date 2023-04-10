@@ -17,6 +17,29 @@ const GetAllCustomers = () => {
         });
     }, []);
 
+    const GetInfo = (id) => {
+        instance.get(`/customer/${id}`).then((response) => {
+            console.log((response.data.data));
+            alert("id: "+response.data.data.id + "\nname: "+response.data.data.name );
+        });
+    }
+
+    const EditInfo = (id) => {
+        
+    }
+
+    const DeleteInfo = (id) => {
+        instance.delete(`/customer?id=${id}`).then((response) => {
+            console.log((response.data.message));
+        });
+    }
+
+    const GetLocs = (id) => {
+        instance.get(`/customer/${id}/location`).then((response) => {
+            console.log((response.data.data));
+        });
+    }
+
     return (
         <Fragment>
             {customer.map((data, index) => {
@@ -29,10 +52,10 @@ const GetAllCustomers = () => {
                             {data.name}
                         </td>
                         <td>
-                        <IconButton icon={<InfoOutlineIcon className='Home-table-icon'/>} title="Information" className='Home-table-button'/>
-                        <IconButton icon={<EditIcon className='Home-table-icon'/>} title="Edit Record" className='Home-table-button'/>
-                        <IconButton icon={<TrashIcon className='Home-table-icon'/>} title="Delete Record" className='Home-table-button'/>
-                        <IconButton icon={<LocationIcon className='Home-table-icon'/>} title="Check All Locations" className='Home-table-button'/>
+                        <IconButton icon={<InfoOutlineIcon className='Home-table-icon'/>} title="Information" className='Home-table-button' onClick={() => {GetInfo(data.id)}} />
+                        <IconButton icon={<EditIcon className='Home-table-icon'/>} title="Edit Record" className='Home-table-button'  onClick={() => {EditInfo(data.id)}}/>
+                        <IconButton icon={<TrashIcon className='Home-table-icon'/>} title="Delete Record" className='Home-table-button'  onClick={() => {DeleteInfo(data.id)}}/>
+                        <IconButton icon={<LocationIcon className='Home-table-icon'/>} title="Check All Locations" className='Home-table-button'  onClick={() => {GetLocs(data.id)}}/>
                         </td>
                     </tr>
                 )
