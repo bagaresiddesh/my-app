@@ -1,8 +1,8 @@
 import React from "react"
 import { useState } from "react";
-import './Home.css';
+import '../Home.css';
 import { useNavigate } from "react-router-dom";
-import instance from "../config/axios";
+import instance from "../../config/axios";
 
 const Auth = () => {
     let responseData = "";
