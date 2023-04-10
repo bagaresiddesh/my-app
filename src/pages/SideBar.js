@@ -14,23 +14,19 @@ const SideBar = () => {
             <Menu
                 mode="inline"
                 onClick={({ key }) => {
-                    if (key === "logout") {
-
-                    }
-                    else {
-                        navigate(key);
-                    }
+                    navigate(key);
                 }}
             >
                 <Menu.Item className="Dashboard-nav-bar-title" key="/dashboard">Home</Menu.Item>
-                <SubMenu className="Dashboard-nav-bar-title" title="Customer" icon={<MemberIcon className='Home-icon'/>}>
+                <SubMenu className="Dashboard-nav-bar-title" title="Customer" icon={<MemberIcon className='Home-icon' />}>
                     <Menu.Item key="/dashboard/customer/get">List</Menu.Item>
                     <Menu.Item key="/dashboard/customer/create">Create</Menu.Item>
                 </SubMenu>
-                <SubMenu className="Dashboard-nav-bar-title" title="Location" icon={<LocationIcon className='Home-icon'/>}>
+                <SubMenu className="Dashboard-nav-bar-title" title="Location" icon={<LocationIcon className='Home-icon' />}>
                     <Menu.Item key="/dashboard/location/get">List</Menu.Item>
                     <Menu.Item key="/dashboard/location/create">Create</Menu.Item>
                 </SubMenu>
+                <Menu.Item className="Dashboard-nav-bar-title" key="../logout">Logout</Menu.Item>
             </Menu>
 
         </div>

@@ -10,22 +10,19 @@ import Demo7 from './components/Demo7';
 import Home from './pages/Home';
 import Customer from './pages/customer/Customer';
 import Location from './pages/location/Location';
+import CustomerForm from './pages/customer/CustomerForm';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import CustomerForm from './pages/customer/CustomerForm';
-import { Auth0Provider } from '@auth0/auth0-react';
-
+import Logout from './pages/auth/Logout';
 
 function App() {
 
   return (
-    <Auth0Provider>
       <Router>
-        <div className="App">
-        </div>
+        <div className="App" />
         <Routes>
           <Route exact path='/dashboard' element={<Home />}>
             <Route exact path='/dashboard/customer/get' element={<Customer />}></Route>
@@ -34,6 +31,7 @@ function App() {
             <Route exact path='/dashboard/location/get' element={<Location />}></Route>
             <Route exact path='/dashboard/location/create' element={<CustomerForm />}></Route>
           </Route>
+          <Route exact path='/logout' element={<Logout />}></Route>
           <Route exact path='/' element={<Auth />}></Route>
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/useEffect' element={< Demo2 />}></Route>
@@ -44,7 +42,6 @@ function App() {
           <Route exact path='/useReducer' element={< Demo7 />}></Route>
         </Routes>
       </Router>
-    </Auth0Provider>
   );
 }
 

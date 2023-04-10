@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import '../Home.css';
 import axios from "axios";
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Register = () => {
     let responseData = "";
@@ -8,6 +9,7 @@ const Register = () => {
     const [userName, setUserName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [password, setPassword] = useState('');
+    const { loginWithRedirect } = useAuth0();
 
     const handleUserNameChange = (value) => {
         setUserName(value);
@@ -57,6 +59,9 @@ const Register = () => {
                 if (result.data.username != null) {
                     setErrorMessage("");
                     responseData = "User Registered successfully"
+                    loginWithRedirect({
+                        screen_hint: 'signup',
+                      })                    
                 }
                 alert(responseData + " with username: " + result.data.username);
 
