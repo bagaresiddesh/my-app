@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import '../Home.css';
 import axios from "axios";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     let responseData = "";
@@ -9,7 +9,7 @@ const Register = () => {
     const [userName, setUserName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [password, setPassword] = useState('');
-    const { loginWithRedirect } = useAuth0();
+    const navigate = useNavigate();
 
     const handleUserNameChange = (value) => {
         setUserName(value);
@@ -58,12 +58,10 @@ const Register = () => {
 
                 if (result.data.username != null) {
                     setErrorMessage("");
-                    responseData = "User Registered successfully"
-                    loginWithRedirect({
-                        screen_hint: 'signup',
-                      })                    
+                    responseData = "User Registered successfully"                
                 }
                 alert(responseData + " with username: " + result.data.username);
+                navigate("/")
 
             }).catch((error) => {
                 console.log(error.message);
@@ -130,7 +128,7 @@ const Register = () => {
                         {/* <small className="Auth-form-error">Field required</small> */}
                     </div>
                     <div className="d-grid gap-2 mt-3">
-                        <button className="btn btn-primary" onClick={(e) => handleSave(e)}>
+                        <button onClick={(e) => handleSave(e)}>
                             Register
                         </button>
                     </div>

@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Customer from './pages/customer/Customer';
 import Location from './pages/location/Location';
 import CustomerForm from './pages/customer/CustomerForm';
+import LocationForm from './pages/location/LocationForm';
 import {
   BrowserRouter as Router,
   Routes,
@@ -29,7 +30,7 @@ function App() {
             <Route exact path='/dashboard/customer/create' element={<CustomerForm />}></Route>
 
             <Route exact path='/dashboard/location/get' element={<Location />}></Route>
-            <Route exact path='/dashboard/location/create' element={<CustomerForm />}></Route>
+            <Route exact path='/dashboard/location/create' element={<LocationForm />}></Route>
           </Route>
           <Route exact path='/logout' element={<Logout />}></Route>
           <Route exact path='/' element={<Auth />}></Route>

@@ -91,7 +91,7 @@ const Auth = () => {
                         />
                     </div>
                     <div className="d-grid gap-2 mt-3">
-                        <button className="btn btn-primary" onClick={(e) => handleSave(e)}>
+                        <button onClick={(e) => handleSave(e)}>
                             Login
                         </button>
                     </div>
