@@ -114,11 +114,6 @@ input {
     color: white !important;
 }
 
-.Dashboard-nav-bar-title :selected {
-    color: white !important;
-}
-
-
 .Dashboard-nav-bar-icon {
     font-size: larger !important;
     color: #20002e !important;

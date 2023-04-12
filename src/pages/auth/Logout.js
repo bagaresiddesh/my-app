@@ -8,9 +8,15 @@ const Logout = () => {
     console.log("token deleted");
 
     useEffect(() => {
-        const timerId = setTimeout(() => navigate("/"), 1000);
+        const timerId = setTimeout(() => navigate("/"), 3000);
         return () => clearTimeout(timerId);
       }, [navigate]);
+
+    return (
+      <div className="Auth-form-title">
+        Logging out..
+      </div>
+    ) 
 }
 
 export default Logout;
