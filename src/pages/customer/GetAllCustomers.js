@@ -61,7 +61,7 @@ const GetAllCustomers = () => {
                     </tr>
                 )
             })}
-            <InfoModal show={show} setShow={setShow} id={id}/>
+            <InfoModal show={show} setShow={setShow} id={id} />
 
         </Fragment>
     );

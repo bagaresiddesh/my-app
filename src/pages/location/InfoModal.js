@@ -9,11 +9,13 @@ const InfoModal = (props) => {
     const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
-        instance.get(`/location/${props.id}`).then((response) => {
-            console.log((response.data.data));
-            setCity(response.data.data.city);
-            setCustomerId(response.data.data.customerId);
-        });
+        if (props.id) {
+            instance.get(`/location/${props.id}`).then((response) => {
+                console.log((response.data.data));
+                setCity(response.data.data.city);
+                setCustomerId(response.data.data.customerId);
+            });
+        }
     }, [props.id]);
 
     return (
@@ -22,7 +24,9 @@ const InfoModal = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Customer Info</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Id: {props.id} City: {city} Customer Id: {customerId}</Modal.Body>
+                <Modal.Body>Id: {props.id} </Modal.Body>
+                <Modal.Body>City: {city}</Modal.Body>
+                <Modal.Body>Customer Id: {customerId}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close

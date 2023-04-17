@@ -8,10 +8,12 @@ const InfoModal = (props) => {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        instance.get(`/customer/${props.id}`).then((response) => {
-            console.log((response.data.data));
-            setName(response.data.data.name);
-        });
+        if (props.id) {
+            instance.get(`/customer/${props.id}`).then((response) => {
+                console.log((response.data.data));
+                setName(response.data.data.name);
+            });
+        }
     }, [props.id]);
 
     return (
@@ -20,7 +22,8 @@ const InfoModal = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Customer Info</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Id: {props.id} Name: {name}</Modal.Body>
+                <Modal.Body>Id: {props.id}</Modal.Body>
+                <Modal.Body>Name: {name}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close

@@ -25,7 +25,7 @@ const GetAllLocations = () => {
     }
 
     const EditInfo = (id) => {
-        
+
     }
 
     const DeleteInfo = (id) => {
@@ -49,14 +49,14 @@ const GetAllLocations = () => {
                             {data.customerId}
                         </td>
                         <td>
-                            <IconButton icon={<InfoOutlineIcon className='Home-table-icon' />} title="Information" className='Home-table-button' onClick={() => {GetInfo(data.id)}} />
-                            <IconButton icon={<EditIcon className='Home-table-icon' />} title="Edit Record" className='Home-table-button' onClick={() => {EditInfo(data.id)}}/>
-                            <IconButton icon={<TrashIcon className='Home-table-icon' />} title="Delete Record" className='Home-table-button' onClick={() => {DeleteInfo(data.id)}}/>
+                            <IconButton icon={<InfoOutlineIcon className='Home-table-icon' />} title="Information" className='Home-table-button' onClick={() => { GetInfo(data.id) }} />
+                            <IconButton icon={<EditIcon className='Home-table-icon' />} title="Edit Record" className='Home-table-button' onClick={() => { EditInfo(data.id) }} />
+                            <IconButton icon={<TrashIcon className='Home-table-icon' />} title="Delete Record" className='Home-table-button' onClick={() => { DeleteInfo(data.id) }} />
                         </td>
                     </tr>
                 )
             })}
-        <InfoModal show={show} setShow={setShow} id={id}/>
+            <InfoModal show={show} setShow={setShow} id={id} />
         </Fragment>
     );
 }
