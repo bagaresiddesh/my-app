@@ -7,11 +7,13 @@ import TrashIcon from '@rsuite/icons/Trash';
 import InfoOutlineIcon from '@rsuite/icons/InfoOutline';
 import LocationIcon from '@rsuite/icons/Location';
 import InfoModal from './InfoModal';
+import DeleteModal from './DeleteModal';
 
 const GetAllCustomers = () => {
     const [customer, setCustomer] = useState([]);
     const [show, setShow] = useState(false);
     const [id, setId] = useState();
+    const [showDelete, setDeleteShow] = useState(false);
 
     useEffect(() => {
         instance.get("/customer").then((response) => {
@@ -30,9 +32,11 @@ const GetAllCustomers = () => {
     }
 
     const DeleteInfo = (id) => {
-        instance.delete(`/customer?id=${id}`).then((response) => {
-            console.log((response.data.message));
-        });
+        setId(id);
+        setDeleteShow(true);
+        // instance.delete(`/customer?id=${id}`).then((response) => {
+        //     console.log((response.data.message));
+        // });
     }
 
     const GetLocs = (id) => {
@@ -62,6 +66,7 @@ const GetAllCustomers = () => {
                 )
             })}
             <InfoModal show={show} setShow={setShow} id={id} />
+            <DeleteModal showDelete={showDelete} setDeleteShow={setDeleteShow} id={id} />
 
         </Fragment>
     );
