@@ -6,11 +6,13 @@ import EditIcon from '@rsuite/icons/Edit';
 import TrashIcon from '@rsuite/icons/Trash';
 import InfoOutlineIcon from '@rsuite/icons/InfoOutline';
 import InfoModal from './InfoModal';
+import DeleteModal from './DeleteModal';
 
 const GetAllLocations = () => {
     const [location, setLocation] = useState([]);
     const [show, setShow] = useState(false);
     const [id, setId] = useState();
+    const [showDelete, setDeleteShow] = useState(false);
 
     useEffect(() => {
         instance.get("/location").then((response) => {
@@ -29,9 +31,8 @@ const GetAllLocations = () => {
     }
 
     const DeleteInfo = (id) => {
-        instance.delete(`/location?id=${id}`).then((response) => {
-            console.log((response.data.message));
-        });
+        setId(id);
+        setDeleteShow(true);
     }
 
     return (
@@ -57,6 +58,7 @@ const GetAllLocations = () => {
                 )
             })}
             <InfoModal show={show} setShow={setShow} id={id} />
+            <DeleteModal showDelete={showDelete} setDeleteShow={setDeleteShow} id={id} />
         </Fragment>
     );
 }

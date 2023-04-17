@@ -10,23 +10,20 @@ const DeleteModal = (props) => {
     }
     const [name, setName] = useState("");
     const [errorMessage, setErrorMessage] = useState(" ");
+    const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
         if (props.id) {
-            instance.get(`/customer/${props.id}`).then((response) => {
+            instance.get(`/location/${props.id}`).then((response) => {
                 setName(response.data.data.name);
+                setCustomerId(response.data.data.customerId);
             });
         }
     }, [props.id]);
 
     const deleteRecord = () => {
-        instance.delete(`/customer?id=${props.id}`).then((response) => {
-            if (response.data.message === "Can not delete Customer, Location  Exist!!!") {
-                setErrorMessage(response.data.message);
-            }
-            else {
-                props.setDeleteShow(false);
-            }
+        instance.delete(`/location?id=${props.id}`).then((response) => {
+            props.setDeleteShow(false);
 
             console.log((response.data.message));
         });
@@ -36,7 +33,7 @@ const DeleteModal = (props) => {
         <Fragment>
             <Modal show={props.showDelete} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Delete Customer</Modal.Title>
+                    <Modal.Title>Delete Location</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {errorMessage && (
@@ -45,6 +42,7 @@ const DeleteModal = (props) => {
                 </Modal.Body>
                 <Modal.Body>Are you sure you want to delete this record?</Modal.Body>
                 <Modal.Body>Id: {props.id}</Modal.Body>
+                <Modal.Body>Customer Id: {customerId}</Modal.Body>
                 <Modal.Body>Name: {name}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="danger" onClick={deleteRecord}>
