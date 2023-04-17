@@ -6,9 +6,11 @@ import EditIcon from '@rsuite/icons/Edit';
 import TrashIcon from '@rsuite/icons/Trash';
 import InfoOutlineIcon from '@rsuite/icons/InfoOutline';
 import LocationIcon from '@rsuite/icons/Location';
+import InfoModal from './InfoModal';
 
 const GetAllCustomers = () => {
     const [customer, setCustomer] = useState([]);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         instance.get("/customer").then((response) => {
@@ -18,7 +20,8 @@ const GetAllCustomers = () => {
     }, []);
 
     const GetInfo = (id) => {
-        instance.get(`/customer/${id}`).then((response) => {  
+        instance.get(`/customer/${id}`).then((response) => { 
+        setShow(true); 
         console.log((response.data.data));
         });
     }
@@ -59,6 +62,7 @@ const GetAllCustomers = () => {
                     </tr>
                 )
             })}
+            <InfoModal show={show} setShow={setShow}/>
 
         </Fragment>
     );
