@@ -47,7 +47,7 @@ label {
     color: #260037;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    display: block;
+    display: block !important;
 }
 
 p {
@@ -64,7 +64,7 @@ button {
     color: white;
     border-radius: 12px;
     margin-top: 1rem;
-    margin: 10px;
+    margin: 10px !important;
 }
 
 button:hover,
