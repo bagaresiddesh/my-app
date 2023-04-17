@@ -5,9 +5,12 @@ import { IconButton } from "rsuite";
 import EditIcon from '@rsuite/icons/Edit';
 import TrashIcon from '@rsuite/icons/Trash';
 import InfoOutlineIcon from '@rsuite/icons/InfoOutline';
+import InfoModal from './InfoModal';
 
 const GetAllLocations = () => {
     const [location, setLocation] = useState([]);
+    const [show, setShow] = useState(false);
+    const [id, setId] = useState();
 
     useEffect(() => {
         instance.get("/location").then((response) => {
@@ -17,9 +20,8 @@ const GetAllLocations = () => {
     }, []);
 
     const GetInfo = (id) => {
-        instance.get(`/location/${id}`).then((response) => {
-            console.log((response.data));
-        });
+        setId(id);
+        setShow(true);
     }
 
     const EditInfo = (id) => {
@@ -54,6 +56,7 @@ const GetAllLocations = () => {
                     </tr>
                 )
             })}
+        <InfoModal show={show} setShow={setShow} id={id}/>
         </Fragment>
     );
 }

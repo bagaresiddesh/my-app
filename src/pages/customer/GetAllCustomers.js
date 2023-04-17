@@ -22,7 +22,7 @@ const GetAllCustomers = () => {
 
     const GetInfo = (id) => {
         setId(id);
-            setShow(true);
+        setShow(true);
     }
 
     const EditInfo = (id) => {
