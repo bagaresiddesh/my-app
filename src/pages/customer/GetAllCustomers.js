@@ -11,6 +11,7 @@ import InfoModal from './InfoModal';
 const GetAllCustomers = () => {
     const [customer, setCustomer] = useState([]);
     const [show, setShow] = useState(false);
+    const [id, setId] = useState();
 
     useEffect(() => {
         instance.get("/customer").then((response) => {
@@ -20,10 +21,8 @@ const GetAllCustomers = () => {
     }, []);
 
     const GetInfo = (id) => {
-        instance.get(`/customer/${id}`).then((response) => { 
-        setShow(true); 
-        console.log((response.data.data));
-        });
+        setId(id);
+            setShow(true);
     }
 
     const EditInfo = (id) => {
@@ -62,7 +61,7 @@ const GetAllCustomers = () => {
                     </tr>
                 )
             })}
-            <InfoModal show={show} setShow={setShow}/>
+            <InfoModal show={show} setShow={setShow} id={id}/>
 
         </Fragment>
     );

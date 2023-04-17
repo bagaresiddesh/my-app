@@ -1,20 +1,26 @@
-import React, { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
+import instance from '../../config/axios';
 
 const InfoModal = (props) => {
     const handleClose = () => props.setShow(false);
+    const [name, setName] = useState("");
+
+    useEffect(() => {
+        instance.get(`/customer/${props.id}`).then((response) => {
+            console.log((response.data.data));
+            setName(response.data.data.name);
+        });
+    }, [props.id]);
 
     return (
         <Fragment>
-            {/* <Button variant="primary" onClick={handleShow}>
-                click modal
-            </Button> */}
             <Modal show={props.show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Customer Info {props.id}</Modal.Title>
+                    <Modal.Title>Customer Info</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Hello,you're reading body of the modal! { }</Modal.Body>
+                <Modal.Body>Id: {props.id} Name: {name}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close
