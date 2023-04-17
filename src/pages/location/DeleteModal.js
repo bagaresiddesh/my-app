@@ -8,14 +8,14 @@ const DeleteModal = (props) => {
         setErrorMessage("");
         props.setDeleteShow(false);
     }
-    const [name, setName] = useState("");
+    const [city, setCity] = useState("");
     const [errorMessage, setErrorMessage] = useState(" ");
     const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
         if (props.id) {
             instance.get(`/location/${props.id}`).then((response) => {
-                setName(response.data.data.name);
+                setCity(response.data.data.city);
                 setCustomerId(response.data.data.customerId);
             });
         }
@@ -43,7 +43,7 @@ const DeleteModal = (props) => {
                 <Modal.Body>Are you sure you want to delete this record?</Modal.Body>
                 <Modal.Body>Id: {props.id}</Modal.Body>
                 <Modal.Body>Customer Id: {customerId}</Modal.Body>
-                <Modal.Body>Name: {name}</Modal.Body>
+                <Modal.Body>City: {city}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="danger" onClick={deleteRecord}>
                         Delete
