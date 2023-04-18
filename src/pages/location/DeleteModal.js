@@ -13,7 +13,7 @@ const DeleteModal = (props) => {
     const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
-        if (props.id) {
+        if (props.showDelete) {
             instance.get(`/location/${props.id}`).then((response) => {
                 setCity(response.data.data.city);
                 setCustomerId(response.data.data.customerId);

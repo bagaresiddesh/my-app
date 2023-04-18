@@ -12,7 +12,7 @@ const DeleteModal = (props) => {
     const [errorMessage, setErrorMessage] = useState(" ");
 
     useEffect(() => {
-        if (props.id) {
+        if (props.showDelete) {
             instance.get(`/customer/${props.id}`).then((response) => {
                 setName(response.data.data.name);
             });

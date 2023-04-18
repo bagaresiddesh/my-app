@@ -41,9 +41,8 @@ const LocationForm = () => {
             console.log(data);
 
             instance.post("/location", data).then(() => {
-
                 setErrorMessage("");
-                navigate("/dashboard");
+                navigate("/dashboard/location/get");
             }).catch((error) => {
                 responseData = error.message;
                 setErrorMessage(responseData);

@@ -9,7 +9,7 @@ const InfoModal = (props) => {
     const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
-        if (props.id) {
+        if (props.show) {
             instance.get(`/location/${props.id}`).then((response) => {
                 console.log((response.data.data));
                 setCity(response.data.data.city);

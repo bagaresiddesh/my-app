@@ -32,7 +32,7 @@ const CustomerForm = () => {
 
             instance.post("/customer", data).then(() => {
                 setErrorMessage("");
-                navigate("/dashboard");
+                navigate("/dashboard/customer/get");
             }).catch((error) => {
                 responseData = error.message;
                 setErrorMessage(responseData);
