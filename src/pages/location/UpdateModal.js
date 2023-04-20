@@ -5,13 +5,16 @@ import instance from '../../config/axios';
 
 const UpdateModal = (props) => {
     const handleClose = () => {
+        setErrorMessage("");
         props.setUpdateShow(false);
     }
     const [city, setCity] = useState("");
     const [customerId, setCustomerId] = useState();
     const [updatedCity, setUpdatedCity] = useState("");
+    const [errorMessage, setErrorMessage] = useState(" ");
 
-    const handleUpdatedCityChange = (value) => {
+    const handleUpdatedCityChange = (value) => {       
+        value = value.replace(/^\s+|\s+$/gm,'');
         setUpdatedCity(value);
     }
 
@@ -25,6 +28,12 @@ const UpdateModal = (props) => {
     }, [props.id]);
 
     const updateRecord = () => {
+        if(updatedCity === "") 
+        {
+            setErrorMessage("Please enter city");
+            return;
+            
+        }
         const data = {
             id: props.id,
             city: updatedCity,
@@ -43,6 +52,11 @@ const UpdateModal = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Are you sure you want to update this record?</Modal.Title>
                 </Modal.Header>
+                <Modal.Body>
+                    {errorMessage && (
+                        <p className="Auth-form-error"> {errorMessage} </p>
+                    )}
+                </Modal.Body>
                 <Modal.Body><p>Id: {props.id} Customer Id: {customerId} City: {city}</p></Modal.Body>
                 <Modal.Body>
                     <Form.Group >

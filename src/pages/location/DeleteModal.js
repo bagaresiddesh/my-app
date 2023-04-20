@@ -5,11 +5,9 @@ import instance from '../../config/axios';
 
 const DeleteModal = (props) => {
     const handleClose = () => {
-        setErrorMessage("");
         props.setDeleteShow(false);
     }
     const [city, setCity] = useState("");
-    const [errorMessage, setErrorMessage] = useState(" ");
     const [customerId, setCustomerId] = useState("");
 
     useEffect(() => {
@@ -36,11 +34,6 @@ const DeleteModal = (props) => {
                 <Modal.Header closeButton>
                     <Modal.Title>Are you sure you want to delete this record?</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    {errorMessage && (
-                        <p className="Auth-form-error"> {errorMessage} </p>
-                    )}
-                </Modal.Body>
                 <Modal.Body>Id: {props.id}</Modal.Body>
                 <Modal.Body>Customer Id: {customerId}</Modal.Body>
                 <Modal.Body>City: {city}</Modal.Body>
