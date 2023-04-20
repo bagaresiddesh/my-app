@@ -34,14 +34,13 @@ const DeleteModal = (props) => {
         <Fragment>
             <Modal show={props.showDelete} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Delete Location</Modal.Title>
+                    <Modal.Title>Are you sure you want to delete this record?</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {errorMessage && (
                         <p className="Auth-form-error"> {errorMessage} </p>
                     )}
                 </Modal.Body>
-                <Modal.Body>Are you sure you want to delete this record?</Modal.Body>
                 <Modal.Body>Id: {props.id}</Modal.Body>
                 <Modal.Body>Customer Id: {customerId}</Modal.Body>
                 <Modal.Body>City: {city}</Modal.Body>

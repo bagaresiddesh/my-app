@@ -22,7 +22,7 @@ const InfoModal = (props) => {
         <Fragment>
             <Modal show={props.show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Customer Info</Modal.Title>
+                    <Modal.Title>Location Information</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>Id: {props.id} </Modal.Body>
                 <Modal.Body>City: {city}</Modal.Body>

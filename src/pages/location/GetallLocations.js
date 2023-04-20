@@ -7,12 +7,14 @@ import TrashIcon from '@rsuite/icons/Trash';
 import InfoOutlineIcon from '@rsuite/icons/InfoOutline';
 import InfoModal from './InfoModal';
 import DeleteModal from './DeleteModal';
+import UpdateModal from './UpdateModal';
 
 const GetAllLocations = () => {
     const [location, setLocation] = useState([]);
     const [show, setShow] = useState(false);
     const [id, setId] = useState();
     const [showDelete, setDeleteShow] = useState(false);
+    const [showUpdate, setUpdateShow] = useState(false);
 
     useEffect(() => {
         instance.get("/location").then((response) => {
@@ -27,7 +29,8 @@ const GetAllLocations = () => {
     }
 
     const EditInfo = (id) => {
-
+        setId(id);
+        setUpdateShow(true);
     }
 
     const DeleteInfo = (id) => {
@@ -59,6 +62,7 @@ const GetAllLocations = () => {
             })}
             <InfoModal show={show} setShow={setShow} id={id} />
             <DeleteModal showDelete={showDelete} setDeleteShow={setDeleteShow} id={id} />
+            <UpdateModal showUpdate={showUpdate} setUpdateShow={setUpdateShow} id={id} />
         </Fragment>
     );
 }

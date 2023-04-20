@@ -9,6 +9,7 @@ import LocationIcon from '@rsuite/icons/Location';
 import InfoModal from './InfoModal';
 import DeleteModal from './DeleteModal';
 import LocationModal from './LocationModal';
+import UpdateModal from './UpdateModal';
 
 const GetAllCustomers = () => {
     const [customer, setCustomer] = useState([]);
@@ -16,6 +17,7 @@ const GetAllCustomers = () => {
     const [id, setId] = useState();
     const [showDelete, setDeleteShow] = useState(false);
     const [showLocation, setLocationShow] = useState(false);
+    const [showUpdate, setUpdateShow] = useState(false);
 
     useEffect(() => {
         instance.get("/customer").then((response) => {
@@ -30,7 +32,8 @@ const GetAllCustomers = () => {
     }
 
     const EditInfo = (id) => {
-
+        setId(id);
+        setUpdateShow(true);
     }
 
     const DeleteInfo = (id) => {
@@ -65,7 +68,7 @@ const GetAllCustomers = () => {
             })}
             <InfoModal show={show} setShow={setShow} id={id} />
             <DeleteModal showDelete={showDelete} setDeleteShow={setDeleteShow} id={id} />
-
+            <UpdateModal showUpdate={showUpdate} setUpdateShow={setUpdateShow} id={id} />
             <LocationModal showLocation={showLocation} setLocationShow={setLocationShow} id={id} />
 
         </Fragment>

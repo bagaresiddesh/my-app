@@ -12,7 +12,6 @@ const LocationModal = (props) => {
             instance.get(`/customer/${props.id}/location`).then((response) => {
                 console.log((response.data.data));
                 setLocation(response.data.data);
-                console.log(location);
             });
         }
     }, [props.id]);
@@ -21,7 +20,7 @@ const LocationModal = (props) => {
         <Fragment>
             <Modal show={props.showLocation} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Locations for Customer Info</Modal.Title>
+                    <Modal.Title>Locations of Customer: {props.id} </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {location.map((data, index) => {
