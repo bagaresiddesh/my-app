@@ -36,17 +36,11 @@ const GetAllCustomers = () => {
     const DeleteInfo = (id) => {
         setId(id);
         setDeleteShow(true);
-        // instance.delete(`/customer?id=${id}`).then((response) => {
-        //     console.log((response.data.message));
-        // });
     }
 
     const GetLocs = (id) => {
         setId(id);
         setLocationShow(true);
-        // instance.get(`/customer/${id}/location`).then((response) => {
-        //     console.log((response.data.data));
-        // });
     }
 
     return (

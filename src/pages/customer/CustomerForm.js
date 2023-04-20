@@ -39,7 +39,6 @@ const CustomerForm = () => {
             })
         }
         event.preventDefault();
-
     }
 
     const backHandler = () => {

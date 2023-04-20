@@ -23,9 +23,10 @@ const DeleteModal = (props) => {
 
     const deleteRecord = () => {
         instance.delete(`/location?id=${props.id}`).then((response) => {
-            props.setDeleteShow(false);
-
             console.log((response.data.message));
+            if(response.data.message === "Location deleted") {
+                props.setDeleteShow(false);
+            }
         });
     }
 
