@@ -29,9 +29,9 @@ const Auth = () => {
             return true;
         }
         else {
+            setRequiredUserName("");
             setFailEmail("InValid email");
             setPassEmail("");
-            setRequiredUserName("");
             return false;
         }
     }
@@ -39,6 +39,7 @@ const Auth = () => {
     const handleUserNameChange = (value) => {
         if (validEmail(value)) {
             setErrorMessage("");
+            setRequiredUserName("");
             console.log(value);
             setUserName(value);
         }
@@ -47,7 +48,6 @@ const Auth = () => {
         setPassword(value);
     }
     const isValid = () => {
-        console.log("inside");
         if ((password.length === 0) && (userName.length === 0)) {
             setErrorMessage("Invalid");
 
@@ -59,9 +59,6 @@ const Auth = () => {
                     setErrorMessage("Invalid");
                     setRequiredPassword("Required");
 
-                    if (!validEmail()) {
-                        return false;
-                    }
                     return false;
                 }
                 return false;
@@ -72,27 +69,26 @@ const Auth = () => {
     }
 
     const handleSave = (event) => {
+        console.log("1");
         if (isValid()) {
-            const data = {
-                username: userName,
-                password: password
-            }
-
-            instance.post("/auth/login", data).then((result) => {
-
-                token = (token + result.data);
-                if (token.length > 0) {
-                    localStorage.setItem("userToken", token)
-                    //console.log("token set")
-                    responseData = "Login Successful"
-                    setErrorMessage("");
-                    navigate("/dashboard");
+            if(validEmail(userName)) {
+                const data = {
+                    username: userName,
+                    password: password
                 }
-
-            }).catch((error) => {
-                responseData = error.message;
-                setErrorMessage(responseData);
-            })
+    
+                instance.post("/auth/login", data).then((result) => {
+    
+                    token = (token + result.data);
+                    if (token.length > 0) {
+                        localStorage.setItem("userToken", token)
+                        //console.log("token set")
+                        responseData = "Login Successful"
+                        setErrorMessage("");
+                        navigate("/dashboard");
+                    }
+                })
+            }
         }
         event.preventDefault();
     }
@@ -119,7 +115,7 @@ const Auth = () => {
                             <p className='pass'> {passEmail} </p>
                         )}
                         {failEmail && (
-                            <p className='fail'> {failEmail} </p>
+                            <p className='fail'> {failEmail}</p>
                         )}
                         {requiredUserName && (
                             <p className='fail'> {requiredUserName} </p>
