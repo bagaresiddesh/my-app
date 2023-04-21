@@ -40,7 +40,7 @@ const Auth = () => {
         if (validEmail(value)) {
             setErrorMessage("");
             setRequiredUserName("");
-            console.log(value);
+            //console.log(value);
             setUserName(value);
         }
     }
@@ -69,7 +69,6 @@ const Auth = () => {
     }
 
     const handleSave = (event) => {
-        console.log("1");
         if (isValid()) {
             if(validEmail(userName)) {
                 const data = {

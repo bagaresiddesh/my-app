@@ -77,8 +77,6 @@ const Register = () => {
     }
 
     const isPasswordSame = () => {
-        console.log(password);
-        console.log(confirmPassword);
         if (password === confirmPassword) {
             return true;
         }
