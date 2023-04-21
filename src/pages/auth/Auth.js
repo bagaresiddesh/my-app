@@ -49,6 +49,7 @@ const Auth = () => {
                 token = (token + result.data);
                 if (token.length > 0) {
                     localStorage.setItem("userToken", token)
+                    //console.log("token set")
                     responseData = "Login Successful"
                     setErrorMessage("");
                     navigate("/dashboard");
