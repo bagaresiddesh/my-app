@@ -5,14 +5,38 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     let responseData = "";
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const [errorMessage, setErrorMessage] = useState('');
     const [userName, setUserName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [passEmail, setPassEmail] = useState('');
+    const [failEmail, setFailEmail] = useState('');
+    const [requiredUserName, setRequiredUserName] = useState('');
+    const [requiredPassword, setRequiredPassword] = useState('');
+    const [requiredConfirmPassword, setRequiredConfirmPassword] = useState('');
+
+    const validEmail = (email) => {
+        if (regex.test(email)) {
+            setPassEmail("Valid email");
+            setFailEmail("");
+            setRequiredUserName("");
+            return true;
+        }
+        else {
+            setFailEmail("InValid email");
+            setPassEmail("");
+            setRequiredUserName("");
+            return false;
+        }
+    }
 
     const handleUserNameChange = (value) => {
-        setUserName(value);
+        if (validEmail(value)) {
+            setErrorMessage("");
+            setUserName(value);
+        }
     }
     const handlePasswordChange = (value) => {
         setPassword(value);
@@ -21,26 +45,38 @@ const Register = () => {
         setConfirmPassword(value);
     }
     const isFormValid = () => {
-        if ((password.length === 0) && (userName.length === 0)) {
-            setErrorMessage("Username and Password Fields Empty");
-            return false;
-        }
+
         if (userName.length === 0) {
-            setErrorMessage("User name field required");
+            setErrorMessage("Invalid");
+            setRequiredUserName("Required");
+
+            if (password.length === 0) {
+                setErrorMessage("Invalid");
+                setRequiredPassword("Required");
+
+                if (confirmPassword.length === 0) {
+                    setErrorMessage("Invalid");
+                    setRequiredConfirmPassword("Required");
+
+                    if (password !== confirmPassword) {
+                        setErrorMessage("Password and confirm Password not matching");
+
+                        if (!validEmail()) {
+                            return false;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+            }
             return false;
         }
-        if (password.length === 0) {
-            setErrorMessage("Password field required");
-            return false;
-        }
-        if (password.length < 8) {
-            setErrorMessage("Password must be min 8 characters");
-            return false;
-        }
-        if (password !== confirmPassword) {
-            setErrorMessage("Password and confirm Password not matching");
-            return false;
-        }
+
+
+
+
+
         return true;
     }
 
@@ -58,7 +94,7 @@ const Register = () => {
 
                 if (result.data.username != null) {
                     setErrorMessage("");
-                    responseData = "User Registered successfully"                
+                    responseData = "User Registered successfully"
                 }
                 alert(responseData + " with username: " + result.data.username);
                 navigate("/")
@@ -105,6 +141,15 @@ const Register = () => {
                             placeholder="Enter email"
                             onChange={(e) => handleUserNameChange(e.target.value)}
                         />
+                        {passEmail && (
+                            <p className='pass'> {passEmail} </p>
+                        )}
+                        {requiredUserName && (
+                            <p className='fail'> {requiredUserName} </p>
+                        )}
+                        {failEmail && (
+                            <p className='fail'> {failEmail} </p>
+                        )}
                         {/* <small className="Auth-form-error">Field required</small> */}
                     </div>
                     <div className="form-group mt-3 Auth-login-block">
@@ -115,6 +160,9 @@ const Register = () => {
                             placeholder="Enter password"
                             onChange={(e) => handlePasswordChange(e.target.value)}
                         />
+                        {requiredPassword && (
+                            <p className='fail'> {requiredPassword} </p>
+                        )}
                         {/* <small className="Auth-form-error">Field required</small> */}
                     </div>
                     <div className="form-group mt-3 Auth-login-block">
@@ -127,6 +175,9 @@ const Register = () => {
                         />
                         {/* <small className="Auth-form-error">Field required</small> */}
                     </div>
+                    {requiredConfirmPassword && (
+                        <p className='fail'> {requiredConfirmPassword} </p>
+                    )}
                     <div className="d-grid gap-2 mt-3">
                         <button onClick={(e) => handleSave(e)}>
                             Register

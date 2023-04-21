@@ -8,37 +8,71 @@ const Auth = () => {
     let responseData = "";
     let token = "";
 
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
     const navigate = useNavigate();
 
     const [errorMessage, setErrorMessage] = useState('');
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
+    const [passEmail, setPassEmail] = useState('');
+    const [failEmail, setFailEmail] = useState('');
+
+    const [requiredUserName, setRequiredUserName] = useState('');
+    const [requiredPassword, setRequiredPassword] = useState('');
+
+    const validEmail = (email) => {
+        if (regex.test(email)) {
+            setPassEmail("Valid email");
+            setFailEmail("");
+            return true;
+        }
+        else {
+            setFailEmail("InValid email");
+            setPassEmail("");
+            setRequiredUserName("");
+            return false;
+        }
+    }
+
     const handleUserNameChange = (value) => {
-        setUserName(value);
+        if (validEmail(value)) {
+            setErrorMessage("");
+            console.log(value);
+            setUserName(value);
+        }
     }
     const handlePasswordChange = (value) => {
         setPassword(value);
     }
-    const isFormValid = () => {
+    const isValid = () => {
+        console.log("inside");
         if ((password.length === 0) && (userName.length === 0)) {
-            setErrorMessage("Username and Password Fields Empty");
-            return false;
-        }
-        if (userName.length === 0) {
-            setErrorMessage("User name field required");
-            return false;
-        }
-        if (password.length === 0) {
-            setErrorMessage("Password field required");
+            setErrorMessage("Invalid");
+
+            if (userName.length === 0) {
+                setErrorMessage("Invalid");
+                setRequiredUserName("Required");
+
+                if (password.length === 0) {
+                    setErrorMessage("Invalid");
+                    setRequiredPassword("Required");
+
+                    if (!validEmail()) {
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
+            }
             return false;
         }
         return true;
     }
 
     const handleSave = (event) => {
-        event.preventDefault();
-        if (isFormValid) {
+        if (isValid()) {
             const data = {
                 username: userName,
                 password: password
@@ -81,6 +115,15 @@ const Auth = () => {
                             placeholder="Enter email"
                             onChange={(e) => handleUserNameChange(e.target.value)}
                         />
+                        {passEmail && (
+                            <p className='pass'> {passEmail} </p>
+                        )}
+                        {failEmail && (
+                            <p className='fail'> {failEmail} </p>
+                        )}
+                        {requiredUserName && (
+                            <p className='fail'> {requiredUserName} </p>
+                        )}
                     </div>
                     <div className="form-group mt-3 Auth-login-block">
                         <label>Password</label>
@@ -90,6 +133,9 @@ const Auth = () => {
                             placeholder="Enter password"
                             onChange={(e) => handlePasswordChange(e.target.value)}
                         />
+                        {requiredPassword && (
+                            <p className='fail'> {requiredPassword} </p>
+                        )}
                     </div>
                     <div className="d-grid gap-2 mt-3">
                         <button onClick={(e) => handleSave(e)}>

@@ -33,10 +33,7 @@ const SideBar = () => {
                 }}
             >
             </Menu>
-
         </div>
-
-
     )
 }
 

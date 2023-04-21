@@ -173,3 +173,20 @@ input {
 .Home-table-row:hover {
     background-color: #ebe5ee;
 }
+
+.fail {
+    display: flex;
+    line-height: 1px;
+    font-size: 12px;
+    color: red;
+    margin-top: 8px;
+  }
+  
+  .pass {
+    display: flex;
+    line-height: 1px;
+    font-size: 12px;
+    color: green;
+    margin-top: 8px;
+  }
+  
